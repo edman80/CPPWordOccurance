@@ -13,10 +13,10 @@ int main(int argc, char* argv[]){
 
 	bool fileNameFound = false;
 	//bool m_flag = false;
-	//bool c_flag = false;
+	bool c_flag = false;
 	//bool b_flag = false;
 
-	for (int i=1; i<argc; i++){
+	for (int i=1; i<=argc; i++){
 		
 		string argument = argv[i];
 		int flagcount = 0;
@@ -48,6 +48,7 @@ int main(int argc, char* argv[]){
 		}
 		
 		ifstream infile;
+		
 		infile.open(argument.c_str());
 
 		if (infile.is_open()){
