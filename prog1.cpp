@@ -85,6 +85,9 @@ int main(int argc, char* argv[]){
 
 			sort(longest_words.begin(),longest_words.end());
 			longest_words.erase(unique(longest_words.begin(),longest_words.end()), longest_words.end());
+			
+			sort(longest_lines.begin(),longest_lines.end());
+			longest_lines.erase(unique(longest_lines.begin(),longest_lines.end()), longest_lines.end());
 			int c = 0;
 			for(auto i: longest_words){
 				if (c != 0) cout << ", ";
