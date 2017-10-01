@@ -43,8 +43,6 @@ int main(int argc, char* argv[]){
 					exit(EXIT_FAILURE);
 			}
 		
-		}else if (flagcount == argc--){
-			cout << "NO FILES\n";
 		}
 		
 		ifstream infile;
@@ -98,6 +96,7 @@ int main(int argc, char* argv[]){
 				cout << i.length();
 				if( c_flag) cout << "(" << lo[i] << ")"; 
 			}
+			cout << "\n";
 
 			
 
