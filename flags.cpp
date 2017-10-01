@@ -4,6 +4,7 @@
 #include <fstream>
 #include <map>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
@@ -45,19 +46,19 @@ int main(int argc, char* argv[]){
 		infile.open(argument.c_str());
 		
 		map<string, int> lo_map; //Line Occurance Map (Line -> Occurances)
-		map<int, vector<string>> lo_map_bycount;
+		map<int, vector<string> > lo_map_bycount;
 
 		map<string, int> wo_map; //Word Occurance Map (Word -> Occurances)
-		map<int, vector<string>> wo_map_bycount;
+		map<int, vector<string> > wo_map_bycount;
 
 		map<string, int> lc_map; //Line Length Map (Line Contents -> Char Count)
-		map<int, vector<string>> lc_map_bycount;
+		map<int, vector<string> > lc_map_bycount;
 
 		map<string, int> wc_map; //Word Length Map (Word -> Char Count)
-		map<int, vector<string>> wc_map_bycount;
+		map<int, vector<string> > wc_map_bycount;
 
 		map<string ,int>::iterator it;
-		map<int, vector<string>>::iterator sit;
+		map<int, vector<string> >::iterator sit;
 
 		if (infile.is_open()){
 			//To-Do: Create a hashmap for word occurance.
@@ -66,7 +67,7 @@ int main(int argc, char* argv[]){
 				string line;
 				getline(infile, line);
 				
-				lc_map[line] = line.length()
+				lc_map[line] = line.length();
 				lo_map[line]++;
 
 				for (it=lc_map.begin(); it != lc_map.end(); it++){
@@ -88,10 +89,11 @@ int main(int argc, char* argv[]){
 
 				while (linestream >> word){
 					
-					wc_map[word] = word.length()
+					wc_map[word] = word.length();
 					wo_map[word]++;
 				
 				}
+				
 				for (it=wc_map.begin(); it != wc_map.end(); it++){
 					wc_map_bycount[it->second].push_back(it->first);
 				}
@@ -101,9 +103,19 @@ int main(int argc, char* argv[]){
 				}
 
 				if (wc_map_bycount.rbegin() != wc_map_bycount.rend()){
-					vector<string> longest_words = wc_map_bycount->second;
+					map<int, vector<string> >::iterator sit;
+					sit = wc_map_bycount.rbegin();
+					vector<string> longest_words = sit->second;
+				}else{
+					vector<string> longest_words;
 				}
+				
 
+				if (!m_flag && !b_flag && !c_flag){
+					for(auto i: longest_words){
+						cout << i << ", ";
+					}
+				}
                
 			}
 
