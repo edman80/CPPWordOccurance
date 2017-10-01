@@ -90,18 +90,6 @@ int main(int argc, char* argv[]){
 					
 					wc_map[word] = word.length()
 					wo_map[word]++;
-
-					for (it=wc_map.begin(); it != wc_map.end(); it++){
-						wc_map_bycount[it->second].push_back(it->first);
-					}
-
-					for (it=wo_map.begin(); it != wo_map.end(); it++){
-						wo_map_bycount[it->second].push_back(it->first);
-					}
-
-					if (wc_map_bycount.rbegin() != wc_map_bycount.rend()){
-						vector<string> longest_words = wc_map_bycount->second;
-					}
 				
 				}
 				for (it=wc_map.begin(); it != wc_map.end(); it++){
