@@ -63,10 +63,13 @@ int main(int argc, char* argv[]){
 		if (infile.is_open()){
 			//To-Do: Create a hashmap for word occurance.
 			cout << argument << ":\n";
+			vector<string> longest_words;
+
 			while (!infile.eof()){
 				string line;
 				getline(infile, line);
-				
+				cout << "\nLine: "<< line << "\n";
+
 				lc_map[line] = line.length();
 				lo_map[line]++;
 
@@ -88,7 +91,7 @@ int main(int argc, char* argv[]){
 				string word;
 
 				while (linestream >> word){
-					
+					cout << word << "\n";
 					wc_map[word] = word.length();
 					wo_map[word]++;
 				
@@ -102,19 +105,9 @@ int main(int argc, char* argv[]){
 					wo_map_bycount[it->second].push_back(it->first);
 				}
 
-				if (wc_map_bycount.rbegin() != wc_map_bycount.rend()){
-					map<int, vector<string> >::iterator sit;
-					sit = wc_map_bycount.rbegin();
-					vector<string> longest_words = sit->second;
-				}else{
-					vector<string> longest_words;
-				}
-				
 
-				if (!m_flag && !b_flag && !c_flag){
-					for(auto i: longest_words){
-						cout << i << ", ";
-					}
+				if (wc_map_bycount.rbegin() != wc_map_bycount.rend()){
+					longest_words = wc_map_bycount.rbegin()->second;
 				}
                
 			}
@@ -122,6 +115,13 @@ int main(int argc, char* argv[]){
 		}else{
 			cout << argument << " FILE NOT FOUND.\n";
 			continue;
+		}
+
+		if (!m_flag && !b_flag && !c_flag){
+			cout << "\n";
+			for(auto i: longest_words){
+				cout << i << ", ";
+			}
 		}
 
 	}
