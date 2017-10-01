@@ -92,6 +92,7 @@ int main(int argc, char* argv[]){
 				if( c_flag) cout << "(" << wo[i] << ")";
 				c++;
 			}
+			cout << "\n";
 			for(auto i: longest_lines){
 				cout << i.length();
 				if( c_flag) cout << "(" << lo[i] << ")"; 
