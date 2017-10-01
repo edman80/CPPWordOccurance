@@ -12,9 +12,9 @@ using namespace std;
 int main(int argc, char* argv[]){
 
 	bool fileNameFound = false;
-	bool m_flag = false;
-	bool c_flag = false;
-	bool b_flag = false;
+	//bool m_flag = false;
+	//bool c_flag = false;
+	//bool b_flag = false;
 
 	for (int i=1; i<argc; i++){
 		
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]){
 			switch(argument[1]){
 				
 				case 'm':
-					m_flag = true;
+					//m_flag = true;
 					flagcount++;
 					break;
 				case 'c':
@@ -35,11 +35,11 @@ int main(int argc, char* argv[]){
 					flagcount++;
 					continue;
 				case 'b':
-					b_flag = true;
+					//b_flag = true;
 					flagcount++;
 					break;
 				default:
-					cout << argument << " UNRECOGNIZED FLAG. \n";
+					cout << argument << " UNRECOGNIZED FLAG\n";
 					exit(EXIT_FAILURE);
 			}
 		
@@ -101,7 +101,7 @@ int main(int argc, char* argv[]){
 			
 
 		}else{
-			cout << argument << " FILE NOT FOUND. \n";
+			cout << argument << " FILE NOT FOUND\n";
 		}
 	}
 
