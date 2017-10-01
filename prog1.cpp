@@ -12,11 +12,13 @@ using namespace std;
 int main(int argc, char* argv[]){
 
 	bool fileNameFound = false;
-	//bool m_flag = false;
+	bool m_flag = false;
 	bool c_flag = false;
-	//bool b_flag = false;
+	bool b_flag = false;
+	
+	if(argc==1)cout<< "NO FILES\n";
 
-	for (int i=1; i<=argc; i++){
+	for (int i=1; i<argc; i++){
 		
 		string argument = argv[i];
 		int flagcount = 0;
@@ -26,7 +28,7 @@ int main(int argc, char* argv[]){
 			switch(argument[1]){
 				
 				case 'm':
-					//m_flag = true;
+					m_flag = true;
 					flagcount++;
 					break;
 				case 'c':
@@ -35,7 +37,7 @@ int main(int argc, char* argv[]){
 					flagcount++;
 					continue;
 				case 'b':
-					//b_flag = true;
+					b_flag = true;
 					flagcount++;
 					break;
 				default:
@@ -46,7 +48,6 @@ int main(int argc, char* argv[]){
 		}
 		
 		ifstream infile;
-		
 		infile.open(argument.c_str());
 
 		if (infile.is_open()){
